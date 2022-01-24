@@ -18,7 +18,7 @@ class HaziController extends Controller
 
     public function create()
     {
-        //
+        return view('hf.create');
     }
 
     public function store(HaziRequest $request)
