@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Hazik;
+use App\Models\Hazi;
 use App\Http\Requests\HaziRequest;
 use App\Http\Requests\HaziUpdateRequest;
 
@@ -12,8 +12,8 @@ class HaziController extends Controller
 
     public function index()
     {
-        $hazik = Hazik::all();
-        return response()->json($hazik);
+        $hazi = Hazi::all();
+        return response()->json($hazi);
     }
 
     public function create()
@@ -23,7 +23,7 @@ class HaziController extends Controller
 
     public function store(HaziRequest $request)
     {
-        $h = new Hazik();
+        $h = new Hazi();
         $h->fill($request->all());
         $h->save();
         return response()->json($h, 201);
@@ -31,7 +31,7 @@ class HaziController extends Controller
 
     public function show(int $id)
     {
-        $h = Hazik::findOrFail($id);
+        $h = Hazi::findOrFail($id);
         return response()->json($h);
     }
 
@@ -42,7 +42,7 @@ class HaziController extends Controller
 
     public function update(HaziUpdateRequest $request, int $id)
     {
-        $h = Hazik::findOrFail($id);
+        $h = Hazi::findOrFail($id);
         $h->fill($request->all());
         $h->save();
         return response()->json($h, 200);
@@ -50,7 +50,7 @@ class HaziController extends Controller
 
     public function destroy(int $id)
     {
-        Hazik::destroy($id);
+        Hazi::destroy($id);
         return response()->noContent();
     }
 }

@@ -16,8 +16,8 @@ class HaziFactory extends Factory
     {
         return [
             'nev' => Str::headline($this->faker->name()),
-            'bekuldes' => $this->faker->date('Y-m-d', $unixTimestamp),
-            'jegy' => $this->faker->unique()->numberBetween(1,5),
+            'bekuldes' => $this->faker->date('Y-m-d'),
+            'jegy' => $this->faker->randomDigit(),
         ];
     }
 }

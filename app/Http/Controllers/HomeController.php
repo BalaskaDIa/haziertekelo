@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Hazik;
+use App\Models\Hazi;
 
 class HomeController extends Controller
 {
     public function index() {
-        $haziCount = Hazik::count();
+        $haziCount = Hazi::count();
 
         return view('stats', [
             'haziCount' => $haziCount,

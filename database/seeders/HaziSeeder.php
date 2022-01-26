@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+
+use App\Models\Hazi;
 use Illuminate\Database\Seeder;
 
 class HaziSeeder extends Seeder
@@ -13,6 +15,7 @@ class HaziSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Hazi::factory(10)->create();
     }
 }
+

@@ -18,7 +18,7 @@
     @foreach ($hazik as $hazi)
         <tr>
             <td>
-                <a href="{{ route('hazik.show', $hazik->id) }}">{{ $hazi->nev }}</a>
+                <a href="{{ route('hazi.show', $hazi->id) }}">{{ $hazi->nev }}</a>
             </td>
             <td>{{ $hazi->bekuldes }}</td>
             <td>{{ $hazi->jegy }}</td>

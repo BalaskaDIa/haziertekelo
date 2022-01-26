@@ -17,4 +17,4 @@ use App\Http\Controllers\HaziController;
 
 Route::get('/', [ HomeController::class, 'index' ])->name('home');
 
-Route::resource('statues', HaziController::class);
+Route::resource('hazi', HaziController::class);
