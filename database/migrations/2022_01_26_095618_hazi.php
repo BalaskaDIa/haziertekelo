@@ -16,8 +16,9 @@ class Hazi extends Migration
         Schema::create('hazis',function(Blueprint $table){
             $table->id();
             $table->string("nev");
-            $table->string("bekuldes");
+            $table->date("bekuldes");
             $table->integer("jegy");
+            $table->string("ertekeles");
             $table->timestamps();
         });
     }
