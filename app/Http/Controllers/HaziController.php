@@ -12,45 +12,45 @@ class HaziController extends Controller
 
     public function index()
     {
-        $hazi = Hazi::all();
-        return response()->json($hazi);
+        $hf = Hazi::orderBy('nev')->get();
+        return view('hf.index', [ 'hazis' => $hf ]);
     }
 
     public function create()
     {
-        return view('hazi.create');
+        return view('hf.create');
     }
 
     public function store(HaziRequest $request)
     {
-        $h = new Hazi();
-        $h->fill($request->all());
-        $h->save();
-        return response()->json($h, 201);
+        $adattag = $request->only(['nev', 'bekuldes', 'jegy','ertekeles','url']);
+        $hf = new Hazi();
+        $hf->fill($adattag);
+        $hf->save();
+        return redirect()->route('hf.index');
     }
 
-    public function show(int $id)
+    public function show(Hazi $hf)
     {
-        $h = Hazi::findOrFail($id);
-        return response()->json($h);
+        return view('hf.show', ['hazis'=> $hf]);
     }
 
-    public function edit($id)
+    public function edit(Hazi $hf)
     {
-        //
+        return view('hf.edit', ['hazis'=> $hf]);
     }
 
-    public function update(HaziUpdateRequest $request, int $id)
+    public function update(HaziUpdateRequest $request, Hazi $hf)
     {
-        $h = Hazi::findOrFail($id);
-        $h->fill($request->all());
-        $h->save();
-        return response()->json($h, 200);
+        $adattag = $request->only(['nev', 'bekuldes', 'jegy','ertekeles']);
+        $hf->fill($adattag);
+        $hf->save();
+        return redirect()->route('hf.show', $hf->id);
     }
 
-    public function destroy(int $id)
+    public function destroy(Hazi $hf)
     {
-        Hazi::destroy($id);
-        return response()->noContent();
+        $hf->delete();
+        return redirect()->route('hf.index');
     }
 }

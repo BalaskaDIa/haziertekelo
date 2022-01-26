@@ -27,6 +27,7 @@ class HaziRequest extends FormRequest
             'nev' => 'required|string|max:255',
             'bekuldes' => 'required',
             'jegy' => 'required',
+
         ];
     }
 }

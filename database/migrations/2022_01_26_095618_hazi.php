@@ -17,6 +17,7 @@ class Hazi extends Migration
             $table->id();
             $table->string("nev");
             $table->date("bekuldes");
+            $table->string("url");
             $table->integer("jegy");
             $table->string("ertekeles");
             $table->timestamps();

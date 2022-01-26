@@ -19,6 +19,7 @@ class HaziFactory extends Factory
             'bekuldes' => $this->faker->date('Y-m-d'),
             'jegy' => $this->faker->numberBetween(1,5),
             'ertekeles' => $this->faker->realText(50),
+            'url' => $this->faker->url(),
         ];
     }
 }

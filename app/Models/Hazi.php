@@ -14,6 +14,7 @@ class Hazi extends Model
         'bekuldes',
         'jegy',
         'ertekeles',
+        'url',
     ];
 
     protected $visible = [
@@ -22,5 +23,6 @@ class Hazi extends Model
         'bekuldes',
         'jegy',
         'ertekeles',
+        'url',
     ];
 }

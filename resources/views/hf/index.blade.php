@@ -13,17 +13,32 @@
         <tr>
             <th>Név</th>
             <th>Beküldés dátuma</th>
+            <th>Url</th>
             <th>Jegy</th>
+            <th>Értékelés</th>
         </tr>
-    @foreach ($hazik as $hazi)
+    @foreach ($hazis as $hazi)
         <tr>
             <td>
-                <a href="{{ route('hazi.show', $hazi->id) }}">{{ $hazi->nev }}</a>
+                <a href="{{ route('hf.show', $hazi->id) }}">{{ $hazi->nev }}</a>
             </td>
             <td>{{ $hazi->bekuldes }}</td>
+            <td>{{ $hazi->url }}</td>
             <td>{{ $hazi->jegy }}</td>
+            <td>{{ $hazi->ertekeles }}</td>
+            <td>
+                <form method="POST" action="{{ route('hf.destroy', $hazi->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Törlés</button>
+            </form> 
+            </td>
         </tr>
     @endforeach
     </table>
+    <form action="{{ route('hf.create') }}">
+        <br>
+        <button type="submit">Új házi feladat hozzáadása</button>
+    </form>
 </body>
 </html>
